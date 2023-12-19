@@ -1,0 +1,19 @@
+import { useCallback, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAllProducts } from "../../redux/slices/productSlice.js";
+
+const PickProductsCard = () => {
+    const dispatch = useDispatch();
+
+    const fetchProducts = useCallback(() => {
+        dispatch(getAllProducts());
+    }, [dispatch]);
+
+    useEffect(() => {
+        fetchProducts();
+    }, [fetchProducts]);
+
+    return <div>hola</div>;
+};
+
+export default PickProductsCard;
